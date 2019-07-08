@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<template
+    format="5"
+    revision="3"
+    name="Bindable Recycler Configurator"
+    description="Create Base for RecyclerView bindable and Configuration">
+	
+	<parameter
+		id="useAndroidX"
+		name="Source Language"
+		type="enum"
+		default="true">
+        <option id="true" default="true">Kotlin</option>
+        <option id="false">Java</option>
+	</parameter>
+	
+	<parameter
+		id="addDataBindingToGradle"
+		name="Add Databinding to Gradle"
+		type="boolean"
+		default="false"/>
+
+	<category value="Other" />
+	
+    <globals file="globals.xml.ftl" />
+    <execute file="recipe.xml.ftl" />
+
+</template>
