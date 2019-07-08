@@ -6,7 +6,11 @@
         <dependency mavenUrl="com.android.support:support-v4:${buildApi}.+"/>
     </#if>
     <merge from="root/res/values/strings.xml" to="${escapeXmlAttribute(resOut)}/values/strings.xml" />
-
+	
+<#if addDataBindingToGradle>
+	<merge from="databinding.gradle.ftl"
+                 to="${escapeXmlAttribute(manifestOut)}/../../build.gradle" />
+</#if>
     <#if includeLayout>
         <instantiate from="root/res/layout/fragment_databinding.xml.ftl"
                        to="${escapeXmlAttribute(resOut)}/layout/${escapeXmlAttribute(fragmentName)}.xml" />

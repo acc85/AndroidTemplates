@@ -43,6 +43,15 @@
 		default="false"
 		help="Use dagger for activity injection">
 	</parameter>
+	
+	<parameter
+		id="addDataBindingToGradle"
+		name="Add databinding to Gradle"
+		type="boolean"
+		default="false"
+		help="Add databinding to module level gradle. This will only work for groovy  gradle">
+	</parameter>
+	
 		
     <parameter
 		id="shouldAddDependencies"

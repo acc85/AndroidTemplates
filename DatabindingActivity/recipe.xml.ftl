@@ -8,6 +8,10 @@
     <#include "root/res/layout/recipe_simple_with_dataBinding.xml.ftl" />
     <open file="${escapeXmlAttribute(resOut)}/layout/${layoutName}.xml" />
 </#if>
+<#if addDataBindingToGradle>
+        <merge from="databinding.gradle.ftl"
+                 to="${escapeXmlAttribute(manifestOut)}/../../build.gradle" />
+</#if>
 
     <instantiate from="root/src/app_package/SimpleActivity.${ktOrJavaExt}.ftl"
                    to="${escapeXmlAttribute(srcOut)}/${activityClass}.${ktOrJavaExt}" />
