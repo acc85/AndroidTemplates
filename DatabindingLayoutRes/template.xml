@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<template
+    format="5"
+    revision="2"
+    name="Databinding Layout XML File"
+    description="Creates a new XML layout file with Databinding Layout tag."
+    >
+
+    <category value="XML" />
+
+    <parameter
+        id="layoutName"
+        name="Layout File Name"
+        type="string"
+        constraints="layout|unique|nonempty"
+        default="layout"
+        help="Name of the layout XML file." />
+
+    <parameter
+        id="rootTag"
+        name="Root Tag"
+        type="string"
+        constraints="nonempty"
+        default="LinearLayout"
+        help="The root XML tag for the new file" />
+		
+	<parameter
+		id="addDataBindingToGradle"
+		name="Add databinding to Gradle"
+		type="boolean"
+		default="false"
+		help="Add databinding to module level gradle. This will only work for groovy  gradle">
+	</parameter>
+
+
+    <execute file="recipe.xml.ftl" />
+
+</template>
