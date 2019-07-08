@@ -15,14 +15,18 @@ import android.view.ViewGroup
 import ${applicationPackage}.R
 </#if>
 import ${escapeKotlinIdentifiers(packageName)}.databinding.${fragmentName?replace("_"," ")?capitalize?replace(" ","")}Binding
+<#if useAndroidX>
 import androidx.databinding.DataBindingUtil
+<#else>
+import android.databinding.DataBindingUtil
+</#if>
 
 
 /**
  * A simple [Fragment] subclass.
  *
  */
- <#if useDagger>
+<#if useDagger>
 class ${className} : DaggerFragment() {
 <#else>
 class ${className} : Fragment() {
@@ -33,7 +37,7 @@ class ${className} : Fragment() {
 </#if>
 <#if includeLayout>
         // Inflate the layout for this fragment         
-		DataBindingUtil.inflate<${fragmentName?replace("_"," ")?capitalize?replace(" ","")}Binding>(layoutInflater,R.layout.${fragmentName},container,false).apply{
+		DataBindingUtil.inflate<${fragmentName?replace("_"," ")?capitalize?replace(" ","")}Binding>(inflater,R.layout.${fragmentName},container,false).apply{
             return root
         }
 <#else>

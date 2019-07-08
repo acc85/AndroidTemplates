@@ -7,7 +7,11 @@ import dagger.android.support.DaggerAppCompatActivity
 import ${superClassFqcn}
 </#if>
 import android.os.Bundle
+<#if useAndroidX>
 import androidx.databinding.DataBindingUtil
+<#else>
+import android.databinding.DataBindingUtil
+</#if>
 import ${escapeKotlinIdentifiers(packageName)}.databinding.${layoutName?replace("_"," ")?capitalize?replace(" ","")}Binding
 
 
