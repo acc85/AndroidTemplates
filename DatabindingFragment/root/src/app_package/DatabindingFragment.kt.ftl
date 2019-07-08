@@ -14,7 +14,7 @@ import android.view.ViewGroup
 <#if applicationPackage??>
 import ${applicationPackage}.R
 </#if>
-import ${escapeKotlinIdentifiers(packageName)}.databinding.${fragmentName?replace("_"," ")?capitalize?replace(" ","")}Binding
+import ${escapeKotlinIdentifiers(packageName)}.databinding.${underscoreToCamelCase(fragmentName)}Binding
 <#if useAndroidX>
 import androidx.databinding.DataBindingUtil
 <#else>
@@ -37,7 +37,7 @@ class ${className} : Fragment() {
 </#if>
 <#if includeLayout>
         // Inflate the layout for this fragment         
-		DataBindingUtil.inflate<${fragmentName?replace("_"," ")?capitalize?replace(" ","")}Binding>(inflater,R.layout.${fragmentName},container,false).apply{
+		DataBindingUtil.inflate<${underscoreToCamelCase(fragmentName)}Binding>(inflater,R.layout.${fragmentName},container,false).apply{
             return root
         }
 <#else>

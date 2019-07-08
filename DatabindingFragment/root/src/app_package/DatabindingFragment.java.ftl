@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 <#if applicationPackage??>
 import ${applicationPackage}.R;
 </#if>
-import ${escapeKotlinIdentifiers(packageName)}.databinding.${fragmentName?replace("_"," ")?capitalize?replace(" ","")}Binding;
+import ${escapeKotlinIdentifiers(packageName)}.databinding.${underscoreToCamelCase(fragmentName)}Binding;
 <#if useAndroidX>
 import androidx.databinding.DataBindingUtil;
 <#else>
@@ -43,7 +43,7 @@ public class ${className} extends Fragment {
 </#if>
 <#if includeLayout>
         // Inflate the layout for this fragment
-        ${fragmentName?replace("_"," ")?capitalize?replace(" ","")}Binding binding = DataBindingUtil.inflate(inflater,R.layout.${fragmentName},container,false);
+        ${underscoreToCamelCase(fragmentName)}Binding binding = DataBindingUtil.inflate(inflater,R.layout.${fragmentName},container,false);
 		return binding.getRoot();
 <#else>
         TextView textView = new TextView(getActivity());

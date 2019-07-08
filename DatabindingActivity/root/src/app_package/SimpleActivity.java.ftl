@@ -15,7 +15,7 @@ import androidx.databinding.DataBindingUtil;
 <#else>
 import android.databinding.DataBindingUtil;
 </#if>
-import ${escapeKotlinIdentifiers(packageName)}.databinding.${layoutName?replace("_"," ")?capitalize?replace(" ","")}Binding;
+import ${escapeKotlinIdentifiers(packageName)}.databinding.${underscoreToCamelCase(layoutName)}Binding;
 
 
 <#if useDagger>
@@ -29,6 +29,6 @@ public class ${activityClass} extends AppCompatActivity {
 		AndroidInjection.inject(this)
 	</#if>
         super.onCreate(savedInstanceState);
-	    ${layoutName?replace("_"," ")?capitalize?replace(" ","")}Binding binding = DataBindingUtil.setContentView(this, R.layout.${layoutName});
+	    ${underscoreToCamelCase(layoutName)}Binding binding = DataBindingUtil.setContentView(this, R.layout.${layoutName});
     }
 }
